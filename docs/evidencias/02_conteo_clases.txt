@@ -1,0 +1,21 @@
+
+train: 5656 imágenes (esperado 5656) -> OK
+   cbb          466  (8.2%)
+   cbsd        1443  (25.5%)
+   cgm          773  (13.7%)
+   cmd         2658  (47.0%)
+   healthy      316  (5.6%)
+
+validation: 1889 imágenes (esperado 1889) -> OK
+   cbb          156  (8.3%)
+   cbsd         482  (25.5%)
+   cgm          258  (13.7%)
+   cmd          887  (47.0%)
+   healthy      106  (5.6%)
+
+test: 1885 imágenes (esperado 1885) -> OK
+   cbb          155  (8.2%)
+   cbsd         481  (25.5%)
+   cgm          258  (13.7%)
+   cmd          886  (47.0%)
+   healthy      105  (5.6%)
