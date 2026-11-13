@@ -26,6 +26,17 @@
 **Resultado:** Las tres particiones coinciden con las cifras oficiales: train 5656, validation 1889 y test 1885, con 5 clases cada una. Las clases están desbalanceadas: cmd tiene el 47 % de las imágenes y healthy solo el 5,6 %, con las mismas proporciones en las tres particiones.
 **Revisión de la decisión:** Preferí descargar el zip yo mismo y subirlo a Drive para evitar complicaciones después: el archivo ya queda guardado y solo se copia a Colab en cada sesión. Como el profesor no tiene acceso a mi Drive, dejé el enlace oficial de descarga en dataset.md.
 
+## 2026-11-13 — Frank
+
+### 4. Control de duplicados y exclusión de imágenes
+**Problema:** Verificar si había imágenes repetidas entre train, validation y test (fuga de datos), como pide el taller.
+**Alternativas:** Para detectarlas: MD5 (copias exactas) y pHash con distintos umbrales (casi duplicados). Para tratarlas: quitar las copias de train, quitar las de test o no tocar nada.
+**Decisión:** Usamos MD5 y pHash con umbral 0. Decidimos en equipo quitar de train las copias de imágenes que también están en test o validation, y excluir de todas las particiones los grupos de duplicados con etiquetas distintas.
+**Prueba:** Notebook 01_eda_duplicados.ipynb (Celdas 6 a 12).
+**Resultado:** 26 grupos de copias exactas (68 imágenes), 17 cruzan particiones y 18 tienen etiquetas distintas. pHash encontró 4 casi duplicados más. Se excluyeron 62 imágenes y las particiones finales quedaron en train 5616, validation 1878 y test 1874. Comprobación final: 0 copias entre particiones.
+**Revisión de la decisión:** Se mantiene. Quitamos las copias de train porque el test es como el examen y debe quedar fijo para todos los experimentos. Las imágenes con etiquetas contradictorias las sacamos también de test porque no hay forma de saber cuál etiqueta es la correcta, y evaluar con una respuesta dudosa no sería justo. Lo que perdemos es que el test queda con 11 imágenes menos que el oficial, y lo vamos a mencionar como limitación.
+
+
 ### Consultas a IA
 - Consulta: qué framework y entorno usar; cómo configurar Colab y GitHub; cómo cargar y verificar los datos.
 - Respuesta recibida (resumen): sugerencia de PyTorch y Colab; código de configuración y verificación de datos.
