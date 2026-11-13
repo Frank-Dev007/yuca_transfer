@@ -22,10 +22,16 @@
 | **Total** | **5656**   | **1889**    | **1885**    |
 
 - **Formato:** imágenes RGB de tamaño variable.
-- **Resolución:** (se medirá en el EDA)
+- **Resolución:** tamaño variable, entre 420×347 y 1622×1240 píxeles (mediana 543×500). Tamaños más frecuentes: 500×666 (2369), 888×500 (1328), 625×500 (1073), 666×500 (1070), 500×500 (719), 500×888 (512). Mediana por clase: cbb 500×500, cbsd 625×500, cgm 500×584, cmd 507×500, healthy 625×500.
+
 - **Procedencia:** fotografías de campo; país y condiciones por verificar en el artículo de referencia.
-- **Criterios de exclusión:** (definir tras el EDA)
-- **Duplicados encontrados:** (se completará en el EDA)
+- **Criterios de exclusión:** ver docs/protocolo.md, decisiones 1 y 2. Se excluyeron 62 imágenes: 56 por pertenecer a grupos de duplicados con etiquetas contradictorias (35 de train, 10 de validation, 11 de test) y 6 por ser copias de imágenes de otra partición (5 de train, 1 de validation). Particiones finales: train 5616, validation 1878, test 1874. Lista completa en results/imagenes_excluidas.csv; particiones finales en results/particiones_finales.csv.
+
+- **Duplicados encontrados:**
+    - Copias exactas (MD5): 26 grupos con 68 imágenes. 17 grupos cruzan particiones y 18 tienen etiquetas distintas (13 de ellos entre particiones). En los 20 grupos más grandes, 15 tienen una copia como cbb, otra como cbsd y otra como cgm.
+    - Test con copia exacta en train: 11; en validation: 4. Validation con copia exacta en train: 12.
+    - pHash (umbral 0): 36 pares entre particiones; 32 coinciden con MD5 y 4 son casi idénticos. 30 de los 36 pares tienen etiquetas distintas.
+    - Detalle en results/grupos_duplicados_exactos.csv, results/duplicados_exactos.csv y results/duplicados_phash_umbral0.csv; figuras en docs/evidencias.
 
 ## Referencia
 Mwebaze, E., Gebru, T., Frome, A., Nsumba, S., & Tusubira, J. (2019).
