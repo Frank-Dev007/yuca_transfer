@@ -1,0 +1,63 @@
+split,clase,ruta,md5,motivo
+train,cbsd,data/cassavaleafdata/train/cbsd/train-cbsd-55.jpg,ad1fdadd8c7ced32df64aa21790fea58,etiquetas contradictorias
+validation,healthy,data/cassavaleafdata/validation/healthy/validation-healthy-82.jpg,78533d25ddb93dccc7a9d69f9c10cbb6,etiquetas contradictorias
+train,cbb,data/cassavaleafdata/train/cbb/train-cbb-129.jpg,8f43a107f6cc605e747b40fe91c4150f,etiquetas contradictorias
+train,cbsd,data/cassavaleafdata/train/cbsd/train-cbsd-123.jpg,8f43a107f6cc605e747b40fe91c4150f,etiquetas contradictorias
+train,cgm,data/cassavaleafdata/train/cgm/train-cgm-242.jpg,8f43a107f6cc605e747b40fe91c4150f,etiquetas contradictorias
+train,cbb,data/cassavaleafdata/train/cbb/train-cbb-99.jpg,206e79f52dbb5506358c47890dba99ef,etiquetas contradictorias
+train,cbsd,data/cassavaleafdata/train/cbsd/train-cbsd-999.jpg,206e79f52dbb5506358c47890dba99ef,etiquetas contradictorias
+train,cgm,data/cassavaleafdata/train/cgm/train-cgm-498.jpg,206e79f52dbb5506358c47890dba99ef,etiquetas contradictorias
+train,cbb,data/cassavaleafdata/train/cbb/train-cbb-288.jpg,8c676fee84ed698602d2543d702b60ab,etiquetas contradictorias
+train,cbsd,data/cassavaleafdata/train/cbsd/train-cbsd-125.jpg,8c676fee84ed698602d2543d702b60ab,etiquetas contradictorias
+train,cgm,data/cassavaleafdata/train/cgm/train-cgm-528.jpg,8c676fee84ed698602d2543d702b60ab,etiquetas contradictorias
+train,cbb,data/cassavaleafdata/train/cbb/train-cbb-427.jpg,dfbf446bd9ebce68c86a5fae8cb7c096,etiquetas contradictorias
+train,cbsd,data/cassavaleafdata/train/cbsd/train-cbsd-316.jpg,dfbf446bd9ebce68c86a5fae8cb7c096,etiquetas contradictorias
+train,cgm,data/cassavaleafdata/train/cgm/train-cgm-603.jpg,dfbf446bd9ebce68c86a5fae8cb7c096,etiquetas contradictorias
+train,cbb,data/cassavaleafdata/train/cbb/train-cbb-324.jpg,47d71ffe224d9421a282930db4c8c8ca,etiquetas contradictorias
+train,cbsd,data/cassavaleafdata/train/cbsd/train-cbsd-1365.jpg,47d71ffe224d9421a282930db4c8c8ca,etiquetas contradictorias
+train,cgm,data/cassavaleafdata/train/cgm/train-cgm-62.jpg,47d71ffe224d9421a282930db4c8c8ca,etiquetas contradictorias
+train,cgm,data/cassavaleafdata/train/cgm/train-cgm-636.jpg,2da06af1c4f13814ceae8d7831763c4b,copia de una imagen en test
+train,healthy,data/cassavaleafdata/train/healthy/train-healthy-295.jpg,ddba8dba0a123499f72b50521b111b0d,etiquetas contradictorias
+test,cmd,data/cassavaleafdata/test/cmd/test-cmd-628.jpg,40aaf38562dc9233189f4ec12a407239,etiquetas contradictorias
+train,cmd,data/cassavaleafdata/train/cmd/train-cmd-2255.jpg,88805b8371767f0261776041f166e094,etiquetas contradictorias
+validation,cbb,data/cassavaleafdata/validation/cbb/validation-cbb-134.jpg,88805b8371767f0261776041f166e094,etiquetas contradictorias
+train,cbb,data/cassavaleafdata/train/cbb/train-cbb-412.jpg,c527aed926895b5d9213faf622ca2637,etiquetas contradictorias
+train,cgm,data/cassavaleafdata/train/cgm/train-cgm-282.jpg,c527aed926895b5d9213faf622ca2637,etiquetas contradictorias
+validation,cbsd,data/cassavaleafdata/validation/cbsd/validation-cbsd-148.jpg,c527aed926895b5d9213faf622ca2637,etiquetas contradictorias
+train,cgm,data/cassavaleafdata/train/cgm/train-cgm-33.jpg,f20723bbc2243441d150f7dbd1ab4e56,etiquetas contradictorias
+validation,cbb,data/cassavaleafdata/validation/cbb/validation-cbb-86.jpg,f20723bbc2243441d150f7dbd1ab4e56,etiquetas contradictorias
+validation,cbsd,data/cassavaleafdata/validation/cbsd/validation-cbsd-300.jpg,f20723bbc2243441d150f7dbd1ab4e56,etiquetas contradictorias
+train,cbsd,data/cassavaleafdata/train/cbsd/train-cbsd-143.jpg,f3f9b4258469af8830c85cb689ee2f6b,copia de una imagen en validation
+train,cbsd,data/cassavaleafdata/train/cbsd/train-cbsd-1159.jpg,229c20a16bfb13dc1b413c50c4441c8b,etiquetas contradictorias
+validation,cgm,data/cassavaleafdata/validation/cgm/validation-cgm-84.jpg,229c20a16bfb13dc1b413c50c4441c8b,etiquetas contradictorias
+validation,cmd,data/cassavaleafdata/validation/cmd/validation-cmd-138.jpg,33fea28c4ade0a5262f7b8b5377eca90,copia de una imagen en test
+train,cmd,data/cassavaleafdata/train/cmd/train-cmd-1326.jpg,d2cd77f4429146ec04cd0ac7db2c101f,copia de una imagen en validation
+train,cmd,data/cassavaleafdata/train/cmd/train-cmd-108.jpg,53a6ea44810c00caa6c9571744c82d57,copia de una imagen en validation
+train,cbsd,data/cassavaleafdata/train/cbsd/train-cbsd-1272.jpg,7b12fe4cc1f059bbb2f9b0625ddbc953,etiquetas contradictorias
+train,cbsd,data/cassavaleafdata/train/cbsd/train-cbsd-855.jpg,7b12fe4cc1f059bbb2f9b0625ddbc953,etiquetas contradictorias
+train,cgm,data/cassavaleafdata/train/cgm/train-cgm-375.jpg,7b12fe4cc1f059bbb2f9b0625ddbc953,etiquetas contradictorias
+test,cbb,data/cassavaleafdata/test/cbb/test-cbb-21.jpg,7b12fe4cc1f059bbb2f9b0625ddbc953,etiquetas contradictorias
+train,cbb,data/cassavaleafdata/train/cbb/train-cbb-145.jpg,4e19328ea82425b7bce39c10631fd3c0,etiquetas contradictorias
+test,cbsd,data/cassavaleafdata/test/cbsd/test-cbsd-156.jpg,4e19328ea82425b7bce39c10631fd3c0,etiquetas contradictorias
+train,cgm,data/cassavaleafdata/train/cgm/train-cgm-442.jpg,70562f0b471bfb021e4da930fdff23e8,etiquetas contradictorias
+validation,cbb,data/cassavaleafdata/validation/cbb/validation-cbb-152.jpg,70562f0b471bfb021e4da930fdff23e8,etiquetas contradictorias
+test,cbsd,data/cassavaleafdata/test/cbsd/test-cbsd-213.jpg,70562f0b471bfb021e4da930fdff23e8,etiquetas contradictorias
+train,cbsd,data/cassavaleafdata/train/cbsd/train-cbsd-23.jpg,b54c57396fe2308d7659b7050327f6d4,copia de una imagen en test
+train,cbb,data/cassavaleafdata/train/cbb/train-cbb-140.jpg,cc5e495c5d7f8e50c392af29ab5b07eb,etiquetas contradictorias
+train,cgm,data/cassavaleafdata/train/cgm/train-cgm-424.jpg,cc5e495c5d7f8e50c392af29ab5b07eb,etiquetas contradictorias
+test,cbsd,data/cassavaleafdata/test/cbsd/test-cbsd-91.jpg,cc5e495c5d7f8e50c392af29ab5b07eb,etiquetas contradictorias
+train,cbsd,data/cassavaleafdata/train/cbsd/train-cbsd-791.jpg,eabe565d39ee621a8b24a1e410799533,etiquetas contradictorias
+validation,cbb,data/cassavaleafdata/validation/cbb/validation-cbb-94.jpg,eabe565d39ee621a8b24a1e410799533,etiquetas contradictorias
+test,cgm,data/cassavaleafdata/test/cgm/test-cgm-102.jpg,eabe565d39ee621a8b24a1e410799533,etiquetas contradictorias
+train,cbb,data/cassavaleafdata/train/cbb/train-cbb-223.jpg,3d83cddb63d8625c350029c2eb221352,etiquetas contradictorias
+test,cbsd,data/cassavaleafdata/test/cbsd/test-cbsd-398.jpg,3d83cddb63d8625c350029c2eb221352,etiquetas contradictorias
+test,cgm,data/cassavaleafdata/test/cgm/test-cgm-104.jpg,3d83cddb63d8625c350029c2eb221352,etiquetas contradictorias
+train,cbb,data/cassavaleafdata/train/cbb/train-cbb-224.jpg,41dbd73c8823c0992268fd1a2c92653b,etiquetas contradictorias
+validation,cbsd,data/cassavaleafdata/validation/cbsd/validation-cbsd-339.jpg,41dbd73c8823c0992268fd1a2c92653b,etiquetas contradictorias
+test,cgm,data/cassavaleafdata/test/cgm/test-cgm-136.jpg,41dbd73c8823c0992268fd1a2c92653b,etiquetas contradictorias
+train,cbsd,data/cassavaleafdata/train/cbsd/train-cbsd-603.jpg,ed685499c879c39464b16c3294080aef,etiquetas contradictorias
+validation,cbb,data/cassavaleafdata/validation/cbb/validation-cbb-142.jpg,ed685499c879c39464b16c3294080aef,etiquetas contradictorias
+test,cgm,data/cassavaleafdata/test/cgm/test-cgm-199.jpg,ed685499c879c39464b16c3294080aef,etiquetas contradictorias
+train,cbb,data/cassavaleafdata/train/cbb/train-cbb-237.jpg,ee616e7969a68b56c407c103d7d05ac7,etiquetas contradictorias
+train,cbsd,data/cassavaleafdata/train/cbsd/train-cbsd-760.jpg,ee616e7969a68b56c407c103d7d05ac7,etiquetas contradictorias
+test,cgm,data/cassavaleafdata/test/cgm/test-cgm-66.jpg,ee616e7969a68b56c407c103d7d05ac7,etiquetas contradictorias

@@ -1,0 +1,27 @@
+md5,n_imagenes,particiones,clases,n_clases
+206e79f52dbb5506358c47890dba99ef,3,train,"cbb, cbsd, cgm",3
+229c20a16bfb13dc1b413c50c4441c8b,2,"train, validation","cbsd, cgm",2
+2bcf7925245747c33a5ddfc53c6bdc89,2,train,cmd,1
+3d83cddb63d8625c350029c2eb221352,3,"test, train","cbb, cbsd, cgm",3
+41dbd73c8823c0992268fd1a2c92653b,3,"test, train, validation","cbb, cbsd, cgm",3
+47d71ffe224d9421a282930db4c8c8ca,3,train,"cbb, cbsd, cgm",3
+4e19328ea82425b7bce39c10631fd3c0,2,"test, train","cbb, cbsd",2
+53a6ea44810c00caa6c9571744c82d57,2,"train, validation",cmd,1
+70562f0b471bfb021e4da930fdff23e8,3,"test, train, validation","cbb, cbsd, cgm",3
+7265a0888eab79490c892368b564f670,2,validation,cmd,1
+7b12fe4cc1f059bbb2f9b0625ddbc953,4,"test, train","cbb, cbsd, cgm",3
+84ce2a1b3222dc5b97b38aa7d0af1770,2,train,cbsd,1
+88805b8371767f0261776041f166e094,2,"train, validation","cbb, cmd",2
+8c676fee84ed698602d2543d702b60ab,3,train,"cbb, cbsd, cgm",3
+8f43a107f6cc605e747b40fe91c4150f,3,train,"cbb, cbsd, cgm",3
+9d130b304e723f77a4484bf9c45153e9,2,train,cmd,1
+b54c57396fe2308d7659b7050327f6d4,2,"test, train",cbsd,1
+c527aed926895b5d9213faf622ca2637,3,"train, validation","cbb, cbsd, cgm",3
+cc5e495c5d7f8e50c392af29ab5b07eb,3,"test, train","cbb, cbsd, cgm",3
+d2cd77f4429146ec04cd0ac7db2c101f,2,"train, validation",cmd,1
+dfbf446bd9ebce68c86a5fae8cb7c096,3,train,"cbb, cbsd, cgm",3
+eabe565d39ee621a8b24a1e410799533,3,"test, train, validation","cbb, cbsd, cgm",3
+ed685499c879c39464b16c3294080aef,3,"test, train, validation","cbb, cbsd, cgm",3
+ee616e7969a68b56c407c103d7d05ac7,3,"test, train","cbb, cbsd, cgm",3
+f20723bbc2243441d150f7dbd1ab4e56,3,"train, validation","cbb, cbsd, cgm",3
+f3f9b4258469af8830c85cb689ee2f6b,2,"train, validation",cbsd,1
