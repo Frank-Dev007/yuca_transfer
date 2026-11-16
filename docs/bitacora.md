@@ -44,3 +44,14 @@
 
 ## 2026-11-16 — Juan
 - Configuración de mi entorno en Colab (T4) y acceso al repositorio y a los datos.
+## 2026-11-16 — Juan Camilo Díaz Blandón
+
+### 5. E0 baseline
+
+**Problema:** Tener un primer modelo que nos permita saber qué tan bien se pueden clasificar las imágenes de las hojas de yuca y utilizar sus resultados como referencia para comparar con los siguientes modelos.
+**Decisión:** Utilizar regresión logística trabajando con histogramas de color (32 intervalos por cada uno de los 3 canales). También se aplicó StandardScaler para normalizar los datos y ayudar al modelo durante el entrenamiento.
+**Prueba:** Notebook `02_E0_baseline.ipynb`.
+**Resultado:** En las pruebas se obtuvo un accuracy de 0,5491 y un macro-F1 de 0,2997. El recall por clase fue: cbb 0,110; cbsd 0,419; cgm 0,032; cmd 0,901 y healthy 0,067. El tiempo de entrenamiento fue de 2,45 segundos y la extracción de características tardó 9,5 ms por imagen.
+**Revisión de la decisión:** La hipótesis se cumplió parcialmente, porque el modelo sí logró reconocer algunas de las clases, pero tuvo bastantes dificultades con otras. Por ejemplo, reconoció mejor la clase cmd, mientras que para cgm y healthy los resultados fueron muy bajos. Esto puede deberse a que el modelo solamente tiene en cuenta los colores y no otros detalles de las hojas que ayudan a diferenciar una enfermedad de otra. También pudo influir que algunas clases tengan más imágenes que otras, haciendo que el modelo se inclinara más por predecir cmd.
+**¿Qué se consigue sin una arquitectura sofisticada?**
+Con este primer modelo conseguimos tener una idea de cómo se comportan los datos y qué tan difícil es clasificar las hojas de yuca. Aunque no se obtuvieron resultados muy buenos en todas las clases, nos sirvió para comprobar que se pueden reconocer algunas diferencias usando solamente los colores. También nos permitió darnos cuenta de que necesitamos un modelo que pueda analizar más detalles de las imágenes y no quedarse únicamente con sus colores.
