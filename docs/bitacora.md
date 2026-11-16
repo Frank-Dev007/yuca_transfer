@@ -41,3 +41,6 @@
 - Consulta: qué framework y entorno usar; cómo configurar Colab y GitHub; cómo cargar y verificar los datos.
 - Respuesta recibida (resumen): sugerencia de PyTorch y Colab; código de configuración y verificación de datos.
 - Decisión propia: (completar)
+
+## 2026-11-16 — Juan
+- Configuración de mi entorno en Colab (T4) y acceso al repositorio y a los datos.
