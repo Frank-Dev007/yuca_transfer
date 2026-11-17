@@ -57,7 +57,7 @@ Con este primer modelo conseguimos tener una idea de cómo se comportan los dato
 
 ### 6. E1 · Extracción de características (MobileNetV2 congelada + cabeza lineal)
 
-#### 6.1 Prueba de 1 época (E1 parcial) — 2026-11-16
+#### 6.1 Prueba de 1 época (E1 parcial)
 **Problema:** Verificar que el pipeline de entrenamiento (models.py, train.py) funciona antes de lanzar las 10 épocas de E1.
 **Decisión:** Prueba de 1 época con MobileNetV2 congelada + cabeza lineal, con la misma configuración del protocolo (semilla 42, batch 32, Adam, LR 0,001).
 **Prueba:** Ejecución en Colab con src/models.py y src/train.py. Resultados guardados en results/E1_prueba/ y checkpoints/E1_prueba.pt. El notebook de E1 se subirá al repositorio junto con E1 completo.
