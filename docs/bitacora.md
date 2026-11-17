@@ -44,7 +44,6 @@
 
 ## 2026-11-16 — Juan
 - Configuración de mi entorno en Colab (T4) y acceso al repositorio y a los datos.
-## 2026-11-16 — Juan Camilo Díaz Blandón
 
 ### 5. E0 baseline
 
@@ -55,3 +54,12 @@
 **Revisión de la decisión:** La hipótesis se cumplió parcialmente, porque el modelo sí logró reconocer algunas de las clases, pero tuvo bastantes dificultades con otras. Por ejemplo, reconoció mejor la clase cmd, mientras que para cgm y healthy los resultados fueron muy bajos. Esto puede deberse a que el modelo solamente tiene en cuenta los colores y no otros detalles de las hojas que ayudan a diferenciar una enfermedad de otra. También pudo influir que algunas clases tengan más imágenes que otras, haciendo que el modelo se inclinara más por predecir cmd.
 **¿Qué se consigue sin una arquitectura sofisticada?**
 Con este primer modelo conseguimos tener una idea de cómo se comportan los datos y qué tan difícil es clasificar las hojas de yuca. Aunque no se obtuvieron resultados muy buenos en todas las clases, nos sirvió para comprobar que se pueden reconocer algunas diferencias usando solamente los colores. También nos permitió darnos cuenta de que necesitamos un modelo que pueda analizar más detalles de las imágenes y no quedarse únicamente con sus colores.
+
+### 6. E1 · Extracción de características (MobileNetV2 congelada + cabeza lineal)
+
+#### 6.1 Prueba de 1 época (E1 parcial) — 2026-11-16
+**Problema:** Verificar que el pipeline de entrenamiento (models.py, train.py) funciona antes de lanzar las 10 épocas de E1.
+**Decisión:** Prueba de 1 época con MobileNetV2 congelada + cabeza lineal, con la misma configuración del protocolo (semilla 42, batch 32, Adam, LR 0,001).
+**Prueba:** Ejecución en Colab con src/models.py y src/train.py. Resultados guardados en results/E1_prueba/ y checkpoints/E1_prueba.pt. El notebook de E1 se subirá al repositorio junto con E1 completo.
+**Resultado:** La época tardó 60 s. Pérdida train 0,8776 y validación 0,7157. Validación: accuracy 0,7444, macro-F1 0,6297. Test: accuracy 0,7481, macro-F1 0,6125. Recall en test: cbb 0,279 · cbsd 0,807 · cgm 0,470 · cmd 0,921 · healthy 0,381. Evidencias: docs/evidencias/12_E1_prueba_curvas.png y 13_E1_prueba_metricas_matriz.png.
+**Revisión de la decisión:** Se mantiene. La prueba corta sirvió para comprobar que el entrenamiento, la evaluación y el guardado de resultados funcionan sin errores antes de gastar tiempo de GPU en las 10 épocas. Como cada época tardó unos 60 s, calculamos que E1 completo tomaría alrededor de 10 minutos, lo que cabía en la sesión de Colab, así que seguimos con la ejecución completa. Esta prueba también cumple el requisito de una ejecución parcial de E1 para el control del día 7. Los resultados de 1 época no se usarán para comparar con los demás experimentos; para eso se usará E1 completo.
