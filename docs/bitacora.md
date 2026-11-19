@@ -92,12 +92,25 @@ El uso de MobileNetV2 preentrenada nos permitió obtener mejores resultados sin 
 
 
 
+2026-11-18 — Tomás
+Configuración de mi entorno en Colab (T4) y acceso al repositorio con un token classic (permiso "repo").
 
-##### 6.3 Corrección de nombres de E1 y E1_prueba 
+6.3 Corrección de nombres de E1 y E1_prueba
+Problema: Al preparar E2, la verificación de la Celda 2 de notebooks/04_E2_finetuning.ipynb mostró que results/E1 tenía la ejecución de 1 época y results/E1_prueba la de 10 épocas (lo mismo con los checkpoints). E2 habría partido del modelo equivocado.
+Alternativas: Volver a entrenar E1 con los nombres correctos o renombrar los archivos existentes.
+Decisión: Renombrar con git mv, sin volver a entrenar, y corregir los campos "experimento" y "descripcion" dentro de cada metricas.json.
+Prueba: Lectura del campo "epocas" de cada metricas.json después del cambio y nueva ejecución de la Celda 2.
+Resultado: results/E1 y checkpoints/E1.pt corresponden ahora a las 10 épocas, y E1_prueba a la prueba de 1 época. El primer push fue rechazado (error 403) porque el token usado solo tenía permiso de lectura; se cambió por un token classic con permiso "repo". Por los reintentos quedaron tres commits "Corrige nombres…" en el historial; el estado final es el correcto. Los títulos de las gráficas generadas antes del cambio conservan el nombre original.
+Hallazgo adicional: E1 se ejecutó más de una vez. Los valores de la entrada 6.2 y de la captura 14 corresponden a una ejecución que no quedó guardada. El E1 oficial (results/E1/metricas.json y checkpoints/E1.pt, del que parte E2) tiene: entrenamiento de 524 s, mejor época 9 (macro-F1 en validación 0,7040), test accuracy 0,7689 y macro-F1 0,6944, recall en test cbb 0,539 · cbsd 0,795 · cgm 0,723 · cmd 0,832 · healthy 0,571. La diferencia entre ejecuciones con la misma semilla (0,008 en macro-F1) se debe a que en GPU el determinismo no está garantizado (decisión 5). Para las comparaciones se usan los valores oficiales.
+Revisión de la decisión: Se mantiene. Renombrar evitó gastar otra sesión de GPU y el historial de git deja registrado el cambio. Aprendimos a verificar el punto de partida antes de cada experimento y a tomar siempre los resultados del archivo guardado, no de las capturas.
 
-**Problema:** Al revisar `results/*/metricas.json`, encontramos que las carpetas estaban al revés: `results/E1_prueba` tenía la ejecución de 10 épocas y `results/E1` la de 1 época (lo mismo con los checkpoints).  
-**Alternativas:** Volver a entrenar con los nombres correctos o renombrar los archivos existentes.  
-**Decisión:** Renombrar con `git mv` (sin volver a entrenar) y corregir el campo `"experimento"` dentro de cada `metricas.json`.  
-**Prueba:** Verificación del campo `"epocas"` en cada `metricas.json` después del cambio.  
-**Resultado:** `results/E1` y `checkpoints/E1.pt` corresponden a las 10 épocas, y `results/E1_prueba` y `checkpoints/E1_prueba.pt` a la prueba de 1 época. Los títulos de las gráficas `curvas.png` y de la matriz de confusión conservan el nombre original con el que se generaron.  
-**Revisión de la decisión:** Se mantiene. Renombrar evitó gastar otra sesión de GPU, y el historial de git deja registrado el cambio.
+7. E2 · Fine-tuning parcial (MobileNetV2 desde E1)
+Problema: Medir si ajustar el último bloque de MobileNetV2 mejora los resultados frente a E1, y a qué costo.
+Alternativas: Descongelar solo el último bloque o más capas; distintas tasas de aprendizaje.
+Decisión: Partir de checkpoints/E1.pt y descongelar el último bloque (features[-2:] = bloques 17 y 18) más la cabeza. 2 épocas adicionales con Adam y LR 0,0001 (decisiones 7 y 8 del protocolo).
+Prueba: notebooks/04_E2_finetuning.ipynb.
+Resultado: Parámetros entrenables: 892.485 de 2.230.277 (40,0 % del modelo), frente a 6.405 en E1. Época 1: macro-F1 en validación 0,7053; época 2: 0,7264 (mejor época = 2). Validación: accuracy 0,8024. Test: accuracy 0,8042, macro-F1 0,7323 (E1 oficial: 0,7689 y 0,6944). Recall en test: cbb 0,506 · cbsd 0,778 · cgm 0,739 · cmd 0,903 · healthy 0,686. Cambio frente a E1: cbb −0,033 · cbsd −0,017 · cgm +0,016 · cmd +0,071 · healthy +0,115. Costo: 117 s adicionales (unos 58 s por época, frente a unos 52 s en E1; E1 + E2 = 641 s); inferencia 1,23 ms por imagen (E1: 1,15 ms). Evidencias: docs/evidencias/15 a 19 y results/E2/.
+Revisión de la decisión: Se mantiene. La hipótesis se cumplió: el macro-F1 en test subió de 0,6944 a 0,7323, y esa diferencia es unas cinco veces mayor que la que vimos entre dos ejecuciones de E1 (0,008), por lo que no parece ser casualidad. Sin embargo, la mejora no fue igual en todas las clases: healthy y cmd mejoraron bastante, mientras que cbb y cbsd bajaron un poco, y la confusión entre esas dos enfermedades sigue siendo el error más común. La mejor época fue la última y el macro-F1 de validación seguía subiendo, así que con solo 2 épocas no sabemos si habría seguido mejorando. Además, como E2 entrenó 2 épocas más que E1, no podemos separar del todo cuánto de la mejora viene de descongelar el bloque y cuánto de entrenar más tiempo.
+
+¿Mejora frente a E1 y a qué costo?
+Sí mejoró: el macro-F1 en test pasó de 0,6944 a 0,7323 y la accuracy de 0,7689 a 0,8042. Al dejar que el último bloque se ajustara, el modelo pudo adaptar parte de lo que aprendió con ImageNet a las hojas de yuca, sobre todo para reconocer hojas sanas. El costo está principalmente en el entrenamiento: se entrenaron 2 épocas más (117 s adicionales), cada época tardó un poco más y el número de parámetros que se ajustan pasó de 6.405 a 892.485, lo que también aumenta el riesgo de sobreajuste si se entrena demasiado. En cambio, el tiempo de inferencia casi no cambió (1,23 frente a 1,15 ms por imagen), porque el tamaño del modelo es el mismo. Por eso, una vez entrenado, usar el modelo de E2 cuesta prácticamente lo mismo que usar el de E1.
