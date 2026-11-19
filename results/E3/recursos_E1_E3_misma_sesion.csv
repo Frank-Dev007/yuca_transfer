@@ -1,0 +1,3 @@
+,inferencia_ms_por_imagen,memoria_gpu_inferencia_mb,tamano_archivo_mb
+E1 (MobileNetV2),1.211,427.165,9.148
+E3 (ResNet18),1.246,333.084,44.788

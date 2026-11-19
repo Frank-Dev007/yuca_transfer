@@ -1,0 +1,36 @@
+{
+  "experimento": "E3",
+  "fecha": "2026-11-19",
+  "hardware": {
+    "gpu": "Tesla T4",
+    "gpu_igual_a_E1": true
+  },
+  "software": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "torchvision": "0.29.1+cu130",
+    "scikit-learn": "1.6.1"
+  },
+  "configuracion": {
+    "backbone": "resnet18 (IMAGENET1K_V1), congelado",
+    "cabeza": "Linear(512, 5)",
+    "epocas": 10,
+    "lr": 0.001,
+    "optimizador": "Adam",
+    "batch_size": 32,
+    "semilla": 42,
+    "preprocesamiento": "Resize(256) + CenterCrop(224) + normalización ImageNet",
+    "augmentation": "ninguno",
+    "seleccion": "mejor macro-F1 en validación",
+    "particiones": "results/particiones_finales.csv"
+  },
+  "recursos": {
+    "tiempo_entrenamiento_s": 518.197676897049,
+    "segundos_por_epoca": 51.819767689704896,
+    "tiempo_inferencia_ms_por_imagen": 1.2311317026615143,
+    "parametros_totales": 11179077,
+    "parametros_entrenables": 2565,
+    "tamano_checkpoint_mb": 44.788363,
+    "memoria_gpu_pico_entrenamiento_mb": 286.63296
+  }
+}

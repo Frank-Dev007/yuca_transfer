@@ -1,0 +1,3 @@
+Experimento,Accuracy test,Macro-F1 test,Macro-F1 val,Mejor época,Entrenamiento (s),Parámetros totales,Parámetros entrenables,Checkpoint (MB)
+E1 (MobileNetV2),0.7689,0.6944,0.704,9,524.0918,2230277,6405,9.1479
+E3 (ResNet18),0.7727,0.6842,0.6828,10,518.1977,11179077,2565,44.7884
