@@ -89,3 +89,8 @@ Las decisiones 7, 8, 9 y 13 aplican a E1, E2 y E3. E0 (regresión logística) se
 - **BatchNorm del backbone congelado:** durante el entrenamiento se mantiene en modo evaluación para que el backbone congelado no cambie sus estadísticas internas.
 - **"Último bloque" en E2:** en MobileNetV2 corresponde a features[-2:] (bloques 17 y 18: último bloque residual invertido + convolución final). En E2 la cabeza lineal también sigue entrenándose, con la misma tasa de aprendizaje de 0,0001.
 - **Punto de partida de E2:** checkpoints/E1.pt (mejor época de E1 según macro-F1 en validación).
+
+### 16. Medición del costo computacional
+**Decisión:** El costo de cada experimento se reporta con: tiempo de entrenamiento (segundos totales y por época), tiempo de inferencia por imagen (lotes de 32, descartando el primer lote como calentamiento y sin contar la carga de imágenes), parámetros totales y entrenables, tamaño del archivo del modelo (checkpoint) y memoria máxima de GPU. Para comparar arquitecturas, la inferencia, la memoria y el tamaño de E1 y E3 se miden de nuevo en la misma sesión y GPU, cargando los modelos guardados (results/E3/recursos_E1_E3_misma_sesion.csv). Cada experimento guarda su configuración, versiones de software y GPU usada (por ejemplo, results/E3/config_recursos.json).
+**Justificación:** Los tiempos medidos en sesiones distintas de Colab pueden variar aunque se use la misma GPU, así que medir los modelos juntos hace la comparación de costo más justa. Registrar la configuración y las versiones permite reproducir los experimentos.
+**Limitación:** La memoria de GPU durante el entrenamiento solo se midió desde E3; para E1 y E2 no está disponible. El tiempo de entrenamiento incluye la carga de imágenes, que no se midió por separado.
