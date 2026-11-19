@@ -83,3 +83,9 @@ Media [0.485, 0.456, 0.406] y desviación estándar [0.229, 0.224, 0.225] de Ima
 
 ### Alcance de los hiperparámetros
 Las decisiones 7, 8, 9 y 13 aplican a E1, E2 y E3. E0 (regresión logística) se entrena con scikit-learn, por lo que no usa épocas, Adam ni batch size.
+
+### Detalles de implementación de E1, E2 y E3
+- **Cabeza clasificadora:** en MobileNetV2 se reemplazó el clasificador original completo (incluido su dropout) por una sola capa lineal 1280 → 5; en ResNet18 se reemplaza la capa fc por una capa lineal 512 → 5. Así ambas arquitecturas tienen la misma cabeza (decisión 13).
+- **BatchNorm del backbone congelado:** durante el entrenamiento se mantiene en modo evaluación para que el backbone congelado no cambie sus estadísticas internas.
+- **"Último bloque" en E2:** en MobileNetV2 corresponde a features[-2:] (bloques 17 y 18: último bloque residual invertido + convolución final). En E2 la cabeza lineal también sigue entrenándose, con la misma tasa de aprendizaje de 0,0001.
+- **Punto de partida de E2:** checkpoints/E1.pt (mejor época de E1 según macro-F1 en validación).
