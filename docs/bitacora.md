@@ -100,14 +100,13 @@ Con este primer modelo conseguimos tener una idea de cómo se comportan los dato
 
 El uso de MobileNetV2 preentrenada nos permitió obtener mejores resultados sin tener que entrenar una red desde cero. Mientras E0 alcanzó un macro-F1 de 0,2997, E1 llegó a 0,7022 en solo 10 épocas. Además, mejoró notablemente el reconocimiento de clases como cgm, healthy y cbb, y mantuvo un buen resultado en cmd. También redujo el tiempo de entrenamiento, con un total de 543 segundos. Sin embargo, cbb sigue siendo la clase más difícil y el modelo empezó a empeorar en validación, por lo que sería conveniente ajustar o descongelar algunas capas para mejorar su rendimiento.
 
-Consultas a IA
-
-Consulta: “¿Por qué dos ejecuciones de E1 con la misma semilla dan macro-F1 distinto?”
-**Respuesta recibida:** en GPU algunos kernels no son deterministas al 100 %.
-*Qué acepté:** la explicación y que el resultado oficial es el guardado.
-**Qué rechacé:** promediar las dos corridas; el protocolo pide usar el checkpoint guardado.
-**Verificación:** contrasté con results/E1/metricas.json y historial.csv.
-**Decisión final:** usar 0,6944 como valor oficial.
+### Consultas a IA  
+**Consulta:** “¿Por qué dos ejecuciones de E1 con la misma semilla dan macro-F1 distinto?”  
+**Respuesta recibida:** en GPU algunos kernels no son deterministas al 100 %.   
+*Qué acepté:** la explicación y que el resultado oficial es el guardado.   
+**Qué rechacé:** promediar las dos corridas; el protocolo pide usar el checkpoint guardado.   
+**Verificación:** contrasté con results/E1/metricas.json y historial.csv.    
+**Decisión final:** usar 0,6944 como valor oficial.   
 
 ## 2026-11-18 — Tomás
 Configuración del entorno de Tomás en Colab (T4) y acceso al repositorio con un token classic (permiso “repo”).
