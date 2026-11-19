@@ -1,0 +1,3 @@
+Experimento,Accuracy test,Macro-F1 test,Entrenamiento (s),Parámetros entrenables,Inferencia (ms/img)
+E1,0.7689,0.6944,524.0918,6405,1.145
+E2 (desde E1),0.8042,0.7323,641.2966,892485,1.2292

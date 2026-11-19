@@ -1,0 +1,90 @@
+{
+  "experimento": "E2",
+  "descripcion": "MobileNetV2 fine-tuning del último bloque (desde E1)",
+  "semilla": 42,
+  "epocas": 2,
+  "lr": 0.0001,
+  "batch_size": 32,
+  "mejor_epoca": 2,
+  "mejor_macro_f1_val": 0.7263770899393375,
+  "tiempo_entrenamiento_s": 117.20478796958923,
+  "validacion": {
+    "accuracy": 0.8024494142705005,
+    "macro_f1": 0.7263770899393375,
+    "por_clase": {
+      "cbb": {
+        "precision": 0.6015625,
+        "recall": 0.5099337748344371,
+        "f1": 0.5519713261648745,
+        "soporte": 151
+      },
+      "cbsd": {
+        "precision": 0.7711340206185567,
+        "recall": 0.7807933194154488,
+        "f1": 0.7759336099585062,
+        "soporte": 479
+      },
+      "cgm": {
+        "precision": 0.7095588235294118,
+        "recall": 0.7509727626459144,
+        "f1": 0.7296786389413988,
+        "soporte": 257
+      },
+      "cmd": {
+        "precision": 0.8861607142857143,
+        "recall": 0.8961625282167043,
+        "f1": 0.8911335578002245,
+        "soporte": 886
+      },
+      "healthy": {
+        "precision": 0.711340206185567,
+        "recall": 0.6571428571428571,
+        "f1": 0.6831683168316832,
+        "soporte": 105
+      }
+    }
+  },
+  "test": {
+    "accuracy": 0.804162219850587,
+    "macro_f1": 0.7323448597210673,
+    "por_clase": {
+      "cbb": {
+        "precision": 0.5416666666666666,
+        "recall": 0.5064935064935064,
+        "f1": 0.5234899328859061,
+        "soporte": 154
+      },
+      "cbsd": {
+        "precision": 0.7713097713097713,
+        "recall": 0.7777777777777778,
+        "f1": 0.7745302713987474,
+        "soporte": 477
+      },
+      "cgm": {
+        "precision": 0.73046875,
+        "recall": 0.7391304347826086,
+        "f1": 0.7347740667976425,
+        "soporte": 253
+      },
+      "cmd": {
+        "precision": 0.885809312638581,
+        "recall": 0.9028248587570622,
+        "f1": 0.8942361499720202,
+        "soporte": 885
+      },
+      "healthy": {
+        "precision": 0.7912087912087912,
+        "recall": 0.6857142857142857,
+        "f1": 0.7346938775510204,
+        "soporte": 105
+      }
+    }
+  },
+  "tiempo_inferencia_ms_por_imagen": 1.2291546911001205,
+  "parametros_totales": 2230277,
+  "parametros_entrenables": 892485,
+  "tamano_checkpoint_mb": 9.147851,
+  "gpu": "Tesla T4",
+  "parte_de": "checkpoints/E1.pt",
+  "bloques_descongelados": "features[-2:] + cabeza"
+}
