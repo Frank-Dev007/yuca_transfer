@@ -83,8 +83,9 @@ Con este primer modelo conseguimos tener una idea de cómo se comportan los dato
 **Alternativas:** Evaluar la última época o la época con mejor macro-F1 en validación (decisión 11 del protocolo).  
 **Decisión:** Misma configuración de la prueba (semilla 42, batch 32, Adam, LR 0,001), 10 épocas, guardando la época con mejor macro-F1 en validación.  
 **Prueba:** `notebooks/03_E1_feature_extraction.ipynb`. El entrenamiento se ejecutó el 2026-11-16 y sus resultados se subieron ese mismo día (`results/E1/` y `checkpoints/E1.pt`); el notebook se subió el 2026-11-17.  
-**Resultado:** Entrenamiento de 543 s en total. Mejor época: 9 (macro-F1 en validación 0,7094). En la época 10 la pérdida de validación subió a 0,6578 y el macro-F1 bajó a 0,6936. Validación (mejor época): accuracy 0,7865, macro-F1 0,7094. Test: accuracy 0,7924, macro-F1 0,7022. Recall en test: cbb 0,377 · cbsd 0,774 · cgm 0,763 · cmd 0,897 · healthy 0,676. Frente a E0 (macro-F1 en test 0,2997), el macro-F1 de E1 es 0,4025 mayor. Evidencia: `docs/evidencias/14_E1_completo_10_epocas.png`.  
-**Revisión de la decisión:** Se mantiene. El criterio de guardar la mejor época en validación evitó usar la época 10, en la que el modelo empeoró en validación. La predicción medible de la hipótesis de E1 (macro-F1 en test mayor que E0) se cumplió. Creemos que la mejora frente a E0 se debe a que MobileNetV2, al estar preentrenada en ImageNet, ya trae filtros que describen texturas, bordes y formas de las lesiones, y no solo el color; por eso las clases que E0 casi no reconocía subieron mucho (cgm de 0,032 a 0,763, healthy de 0,067 a 0,676 y cbb de 0,110 a 0,377), mientras que cmd se mantuvo alto (0,901 → 0,897). Las curvas muestran que la pérdida de train bajó de forma sostenida desde 0,8776, pero la validación dejó de mejorar en la época 9 y empeoró en la 10 (pérdida de validación 0,6578 y macro-F1 0,6936), lo que indica que con el backbone congelado el modelo empieza a sobreajustar en ese punto y confirma que el criterio de mejor época en validación era el adecuado. cbb sigue siendo la clase más difícil, probablemente porque tiene menos imágenes y lesiones más variadas, y queda como el punto a atacar en los siguientes experimentos.
+**Resultado:** Entrenamiento de 524 s en total. Mejor época: 9 (macro-F1 en validación 0,7040). En la época 10 la validación ya no superó ese valor (ver results/E1/historial.csv). Validación (mejor época): accuracy 0,7694, macro-F1 0,7040. Test: accuracy 0,7689, macro-F1 0,6944. Recall en test: cbb 0,539 · cbsd 0,795 · cgm 0,723 · cmd 0,832 · healthy 0,571. Frente a E0 (macro-F1 en test 0,2997), el macro-F1 de E1 es 0,3947 mayor
+**Evidencia:** `docs/evidencias/14_E1_completo_10_epocas.png`.
+**Revisión de la decisión:** Se mantiene. El criterio de guardar la mejor época en validación evitó usar la época 10, en la que el modelo ya no mejoró en validación. La predicción medible de la hipótesis de E1 (macro-F1 en test mayor que E0) se cumplió. Creemos que la mejora frente a E0 se debe a que MobileNetV2, al estar preentrenada en ImageNet, ya trae filtros que describen texturas, bordes y formas de las lesiones, y no solo el color; por eso las clases que E0 casi no reconocía subieron mucho (cgm de 0,032 a 0,723, healthy de 0,067 a 0,571 y cbb de 0,110 a 0,539), mientras que cmd se mantuvo alto (0,901 → 0,832). Las curvas muestran que la pérdida de train bajó de forma sostenida desde 0,8776, pero la validación dejó de mejorar en la época 9 y en la 10 ya no superó el mejor macro-F1, lo que indica que con el backbone congelado el modelo empieza a sobreajustar en ese punto y confirma que el criterio de mejor época en validación era el adecuado. cbb sigue siendo la clase más difícil (recall 0,539), probablemente porque tiene menos imágenes y lesiones más variadas, y queda como el punto a atacar en los siguientes experimentos.
 
 #### 6.3 Corrección de nombres de E1 y E1_prueba 
 
@@ -99,6 +100,14 @@ Con este primer modelo conseguimos tener una idea de cómo se comportan los dato
 
 El uso de MobileNetV2 preentrenada nos permitió obtener mejores resultados sin tener que entrenar una red desde cero. Mientras E0 alcanzó un macro-F1 de 0,2997, E1 llegó a 0,7022 en solo 10 épocas. Además, mejoró notablemente el reconocimiento de clases como cgm, healthy y cbb, y mantuvo un buen resultado en cmd. También redujo el tiempo de entrenamiento, con un total de 543 segundos. Sin embargo, cbb sigue siendo la clase más difícil y el modelo empezó a empeorar en validación, por lo que sería conveniente ajustar o descongelar algunas capas para mejorar su rendimiento.
 
+Consultas a IA
+
+Consulta: “¿Por qué dos ejecuciones de E1 con la misma semilla dan macro-F1 distinto?”
+**Respuesta recibida:** en GPU algunos kernels no son deterministas al 100 %.
+*Qué acepté:** la explicación y que el resultado oficial es el guardado.
+**Qué rechacé:** promediar las dos corridas; el protocolo pide usar el checkpoint guardado.
+**Verificación:** contrasté con results/E1/metricas.json y historial.csv.
+**Decisión final:** usar 0,6944 como valor oficial.
 
 ## 2026-11-18 — Tomás
 Configuración del entorno de Tomás en Colab (T4) y acceso al repositorio con un token classic (permiso “repo”).
