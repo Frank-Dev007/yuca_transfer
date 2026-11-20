@@ -1,0 +1,91 @@
+{
+  "experimento": "E4",
+  "descripcion": "ResNet18 congelada + augmentation moderado en train",
+  "semilla": 42,
+  "epocas": 10,
+  "lr": 0.001,
+  "batch_size": 32,
+  "mejor_epoca": 9,
+  "mejor_macro_f1_val": 0.6465959825093122,
+  "tiempo_entrenamiento_s": 543.9779348373413,
+  "validacion": {
+    "accuracy": 0.7465388711395101,
+    "macro_f1": 0.6465959825093122,
+    "por_clase": {
+      "cbb": {
+        "precision": 0.6091954022988506,
+        "recall": 0.3509933774834437,
+        "f1": 0.44537815126050423,
+        "soporte": 151
+      },
+      "cbsd": {
+        "precision": 0.7063655030800822,
+        "recall": 0.7181628392484343,
+        "f1": 0.7122153209109731,
+        "soporte": 479
+      },
+      "cgm": {
+        "precision": 0.6639004149377593,
+        "recall": 0.622568093385214,
+        "f1": 0.642570281124498,
+        "soporte": 257
+      },
+      "cmd": {
+        "precision": 0.826271186440678,
+        "recall": 0.8803611738148984,
+        "f1": 0.8524590163934426,
+        "soporte": 886
+      },
+      "healthy": {
+        "precision": 0.5462184873949579,
+        "recall": 0.6190476190476191,
+        "f1": 0.5803571428571429,
+        "soporte": 105
+      }
+    }
+  },
+  "test": {
+    "accuracy": 0.7668089647812166,
+    "macro_f1": 0.6577005294580809,
+    "por_clase": {
+      "cbb": {
+        "precision": 0.5057471264367817,
+        "recall": 0.2857142857142857,
+        "f1": 0.3651452282157676,
+        "soporte": 154
+      },
+      "cbsd": {
+        "precision": 0.7226720647773279,
+        "recall": 0.7484276729559748,
+        "f1": 0.7353244078269825,
+        "soporte": 477
+      },
+      "cgm": {
+        "precision": 0.6804979253112033,
+        "recall": 0.6482213438735178,
+        "f1": 0.6639676113360324,
+        "soporte": 253
+      },
+      "cmd": {
+        "precision": 0.8531914893617021,
+        "recall": 0.9062146892655367,
+        "f1": 0.8789041095890411,
+        "soporte": 885
+      },
+      "healthy": {
+        "precision": 0.625,
+        "recall": 0.6666666666666666,
+        "f1": 0.6451612903225806,
+        "soporte": 105
+      }
+    }
+  },
+  "tiempo_inferencia_ms_por_imagen": 1.2256935238838196,
+  "parametros_totales": 11179077,
+  "parametros_entrenables": 2565,
+  "tamano_checkpoint_mb": 44.788363,
+  "gpu": "Tesla T4",
+  "parte_de": "configuración de E3",
+  "augmentation": "RandomCrop(224) tras Resize(256), RandomHorizontalFlip, RandomVerticalFlip, RandomRotation(15); solo train",
+  "memoria_gpu_pico_entrenamiento_mb": 286.63296
+}

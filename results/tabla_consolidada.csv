@@ -1,0 +1,6 @@
+Experimento,Modelo,Accuracy test,Macro-F1 test,Entrenamiento (s),Inferencia (ms/img),Parámetros totales,Parámetros entrenables
+E0,Regresión logística sobre histogramas de color (32 intervalos x 3 canales),0.5491,0.2997,2.4533,0.0038,485,485
+E1,MobileNetV2 congelada + cabeza lineal,0.7689,0.6944,524.0918,1.145,2230277,6405
+E2,MobileNetV2 fine-tuning del último bloque (desde E1),0.8042,0.7323,641.2966,1.2292,2230277,892485
+E3,ResNet18 congelada + cabeza lineal,0.7727,0.6842,518.1977,1.2311,11179077,2565
+E4,ResNet18 congelada + augmentation moderado en train,0.7668,0.6577,543.9779,1.2257,11179077,2565
