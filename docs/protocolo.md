@@ -77,9 +77,11 @@ Media [0.485, 0.456, 0.406] y desviación estándar [0.229, 0.224, 0.225] de Ima
 **Justificación:** por el tiempo disponible y los recursos de Colab gratuito, no es posible repetir cada experimento varias veces.
 **Limitación:** no podemos medir cuánto varían los resultados entre ejecuciones; si la diferencia entre dos modelos es pequeña, no podremos afirmar que sea real. Las curvas de entrenamiento y validación se usarán como indicio de estabilidad.
 
-### 15. Experimento adicional
-**Decisión:** se hará sobre E3. El tipo (augmentation moderado en el entrenamiento de E3, o perturbación de brillo sobre una copia del test evaluada con E3) se decidirá después de ejecutar E1 y E3, y su objetivo se declarará aquí antes de ejecutarlo.
-**Justificación:** el taller permite cualquiera de las dos opciones. Decidir después de tener E3 nos permite elegir la que aporte más al análisis sin retrasar los experimentos principales.
+### 15. Experimento adicional (E4)
+**Decisión:** augmentation moderado aplicado solo al entrenamiento de E3 (ResNet18 congelada + cabeza lineal). Transformaciones: recorte aleatorio de 224×224 dentro de la imagen redimensionada a 256, volteo horizontal, volteo vertical y rotación de hasta 15°. Sin cambios de color, brillo ni contraste. Validación y test conservan el preprocesamiento normal (resize 256 + recorte central 224). Todo lo demás igual que E3: 10 épocas, Adam, LR 0,001, batch 32, semilla 42, mismas particiones y selección por mejor macro-F1 en validación.
+**Objetivo:** medir si el augmentation mejora la generalización de E3, comparando el macro-F1 en test y la distancia entre la accuracy de train y la de validación.
+**Justificación:** las fotos de campo muestran las hojas en distintas posiciones y orientaciones, así que girar, voltear y desplazar la imagen produce ejemplos realistas sin cambiar la etiqueta. No se modifica el color porque los síntomas (manchas amarillas, mosaico, raya marrón) dependen del color y cambiarlo podría alterar el significado de la imagen. Se aplica sobre E3 porque fue el modelo cuya mejor época fue la última, y así se compara con un único cambio.
+**Limitación:** una sola ejecución (decisión 14); el augmentation también hace un poco más lento el entrenamiento.
 
 ### Alcance de los hiperparámetros
 Las decisiones 7, 8, 9 y 13 aplican a E1, E2 y E3. E0 (regresión logística) se entrena con scikit-learn, por lo que no usa épocas, Adam ni batch size.
