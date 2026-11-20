@@ -83,6 +83,8 @@ Media [0.485, 0.456, 0.406] y desviación estándar [0.229, 0.224, 0.225] de Ima
 **Justificación:** las fotos de campo muestran las hojas en distintas posiciones y orientaciones, así que girar, voltear y desplazar la imagen produce ejemplos realistas sin cambiar la etiqueta. No se modifica el color porque los síntomas (manchas amarillas, mosaico, raya marrón) dependen del color y cambiarlo podría alterar el significado de la imagen. Se aplica sobre E3 porque fue el modelo cuya mejor época fue la última, y así se compara con un único cambio.
 **Limitación:** una sola ejecución (decisión 14); el augmentation también hace un poco más lento el entrenamiento.
 
+**Nota:** este punto se actualizó el 20/11/2026, después de ejecutar E4. El objetivo ya estaba declarado en docs/hipotesis.md (2026-11-16); ver bitácora, entrada 9.
+
 ### Alcance de los hiperparámetros
 Las decisiones 7, 8, 9 y 13 aplican a E1, E2 y E3. E0 (regresión logística) se entrena con scikit-learn, por lo que no usa épocas, Adam ni batch size.
 
