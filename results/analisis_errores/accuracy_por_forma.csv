@@ -1,0 +1,4 @@
+grupo_forma,imagenes,accuracy_E2
+"casi cuadrada (≤1,1)",270,0.737
+"moderada (1,1–1,5)",1185,0.808
+"alargada (>1,5)",419,0.835

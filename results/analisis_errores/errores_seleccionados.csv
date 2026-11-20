@@ -1,0 +1,13 @@
+id,archivo,real,predicha,confianza,prob_clase_real,acierta_E1,acierta_E3,acierta_E4,persistente,causa,observacion
+ERR01,test-cbsd-215.jpg,cbsd,cbb,0.99,0.006,False,False,False,True,A,"El modelo toma la mancha marrón de la parte baja de la hoja como evidencia de cbb; la evidencia de cbsd aparece en el pasto del fondo, no en la hoja"
+ERR02,test-cbsd-233.jpg,cbsd,cbb,0.954,0.044,False,True,True,False,A,Marca la hoja amarilla con zona seca como cbb; la evidencia de cbsd cae en la parte baja de esa misma hoja y en el fondo
+ERR03,test-cbsd-311.jpg,cbsd,cbb,0.935,0.061,False,False,False,True,C,"La evidencia de cbsd está en la hoja izquierda con borde seco, que el recorte deja solo en parte; la de cbb se concentra en el centro, entre dos hojas"
+ERR04,test-cgm-83.jpg,cgm,cmd,0.99,0.009,False,True,False,False,A,"Las hojas moteadas del centro empujan hacia cmd; la evidencia de cgm aparece en la parte superior, que incluye suelo"
+ERR05,test-cgm-73.jpg,cgm,cmd,0.973,0.004,False,False,False,True,A,El modelo se fija en la hoja enrollada de arriba (cmd); la evidencia de cgm está en una hoja del fondo y no en la hoja enfocada (confirmar)
+ERR06,test-cgm-23.jpg,cgm,cmd,0.966,0.029,False,False,False,True,D,"La evidencia de cmd cae sobre sombras, tallos y suelo entre las hojas, con sol fuerte; posible atajo visual (confirmar)"
+ERR07,test-cbb-117.jpg,cbb,cbsd,0.976,0.023,False,False,False,True,A,Las manchas y los agujeros de la parte superior de la hoja empujan hacia cbsd; la evidencia de cbb está en los bordes de la hoja
+ERR08,test-cbb-97.jpg,cbb,cbsd,0.962,0.017,False,False,False,True,A,Las manchas amarillas de la hoja superior empujan hacia cbsd; la evidencia de cbb está cerca del borde dañado del centro
+ERR09,test-cbb-73.jpg,cbb,cbsd,0.959,0.036,False,False,False,True,C,La evidencia de cbsd se concentra en una sola hoja; la mancha marrón de la hoja izquierda queda fuera del recorte y las hojas en sombra no se tienen en cuenta (confirmar)
+ERR10,test-cmd-877.jpg,cmd,cbsd,0.972,0.016,False,False,False,True,D,"La evidencia de cbsd cae debajo de las hojas, sobre el suelo; la de cmd marca partes de las hojas pero también toca el suelo"
+ERR11,test-cmd-232.jpg,cmd,cbsd,0.936,0.005,False,False,False,True,D,"La evidencia de cbsd incluye parte del fondo y ninguna zona aporta evidencia para cmd; foto muy alargada, el recorte elimina casi la mitad del ancho (confirmar si es G)"
+ERR12,test-cmd-665.jpg,cmd,cbsd,0.936,0.024,False,False,False,True,E,La evidencia de cmd es mínima y está sobre una zona en sombra; luz con mucho contraste; revisar si las manchas redondas corresponden a cmd (confirmar si es G o H)

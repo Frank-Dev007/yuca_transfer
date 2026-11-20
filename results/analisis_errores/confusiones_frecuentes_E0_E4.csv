@@ -1,0 +1,6 @@
+,E0,E1,E2,E3,E4
+#1,cbsd → cmd: 245,cmd → cbsd: 71,cbsd → cbb: 48,cmd → cgm: 56,cbb → cbsd: 65
+#2,cgm → cmd: 193,cbsd → cbb: 63,cgm → cmd: 42,cbsd → cmd: 51,cgm → cmd: 59
+#3,cmd → cbsd: 76,cbb → cbsd: 50,cbb → cbsd: 42,cbb → cbsd: 48,cbsd → cmd: 50
+#4,cbb → cmd: 74,cmd → cgm: 47,cmd → cbsd: 39,cgm → cmd: 44,cmd → cbsd: 35
+#5,healthy → cmd: 65,cgm → cmd: 31,cmd → cgm: 33,cbsd → cbb: 40,cmd → cgm: 31
